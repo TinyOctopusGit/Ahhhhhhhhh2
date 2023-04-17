@@ -4,9 +4,8 @@ document.getElementById("frm1").onsubmit = (e) => {
     const APIKey = document.getElementById("APIKey").value;
     const gYear = document.getElementById("gYear").value;
     const output = document.getElementById("result");
-    fetch({
+    fetch(`${baseURL}/events/${gYear}`,{
         method: "GET",
-        url:`${baseURL}/events/${gYear}`,
         headers: {
             ["X-TBA-Auth-Key"]: APIKey
         }
