@@ -5,7 +5,7 @@ document.getElementById("frm1").onsubmit = (e) => {
     const gYear = document.getElementById("gYear").value;
     const output = document.getElementById("result");
     const teamID = document.getElementById("tNumber").value;
-    fetch(`${baseURL}/team/${teamID}/matches/${gYear}`,{
+    fetch(`${baseURL}/team/frc${teamID}/matches/${gYear}`,{
         method: "GET",
         headers: {
             ["X-TBA-Auth-Key"]: APIKey
@@ -14,7 +14,7 @@ document.getElementById("frm1").onsubmit = (e) => {
         k.json().then(p=>{
             output.value = JSON.stringify(p.map(f=>{
                 return {
-                    eventKey: f['event_key'],
+                    eventKey: f['key'],
                     redScore: f['alliances']['red']['score'],
                     blueScore: f['alliances']['blue']['score']
                 }
