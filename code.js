@@ -12,8 +12,8 @@ document.getElementById("frm1").onsubmit = (e) => {
         }
     }).then(k=> {
         k.json().then(p=>{
-            const isBlue = f['alliances']['blue']['team_keys'].find(b=>b===teamID);
             output.value = JSON.stringify(p.map(f=>{
+                const isBlue = f['alliances']['blue']['team_keys'].find(b=>b===teamID);
                 return {
                     eventKey: f['event_key'],
                     teamName: isBlue ? "blue" : "red",
