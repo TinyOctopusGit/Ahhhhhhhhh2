@@ -4,16 +4,21 @@ document.getElementById("frm1").onsubmit = (e) => {
     const APIKey = document.getElementById("APIKey").value;
     const gYear = document.getElementById("gYear").value;
     const output = document.getElementById("result");
-    fetch(`${baseURL}/events/${gYear}`,{
+    const teamID = document.getElementById("tNumber").value;
+    fetch(`${baseURL}/team/${teamID}/matches/${gYear}`,{
         method: "GET",
         headers: {
             ["X-TBA-Auth-Key"]: APIKey
         }
     }).then(k=> {
-        alert("SUCCESS")
-        k.text().then(p=>{
-            alert("DONE")
-            output.value = p;
+        k.json().then(p=>{
+            output.value = JSON.stringify(p.map(f=>{
+                return {
+                    eventKey: f['event_key'],
+                    redScore: f['alliances']['red']['score'],
+                    blueScore: f['alliances']['blue']['score']
+                }
+            }));
         })
     }).catch(ex=>{
         console.log(ex)
