@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TheBluestAlliance</title>
+        <title>The Bluest Alliance</title>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
+        <h1>The Bluest Alliance</h1>
         <form id="frm1">
-            API Key: <input type="text" id="APIKey" value="WlMgRCvJmDsGWMWq6Ghh2h1OBXp37koVJU1IQdbOS0rq6E1vIetaggWA0tkhDFc8	"><br><br>
-            Game Year: <input type="text" id="gYear" value="2023"><br><br>
-            Team Number: <input type="text" id="tNumber" value=""><br><br>
+            <!-- WlMgRCvJmDsGWMWq6Ghh2h1OBXp37koVJU1IQdbOS0rq6E1vIetaggWA0tkhDFc8<br> -->
+            API Key: <input type="text" id="APIKey" value="WlMgRCvJmDsGWMWq6Ghh2h1OBXp37koVJU1IQdbOS0rq6E1vIetaggWA0tkhDFc8" placeholder="The Blue Alliance API Key"><br><br>
+            Game Year: <input type="text" id="gYear" value="2023" placeholder="2023"><br><br>
+            Team Number: <input type="text" id="tNumber" value="1902" placeholder="4-Digit Number"><br>
+            <p>Filters</p>
+            <!-- Finals<input type="checkbox" id="final" name="final" value="final">
+            Quals<input type="checkbox" id="qual" name="qual" value="qual">
+            Matches<input type="checkbox" id="match" name="match" value="match"> -->
+            <br>
+            Wins<input type="checkbox" id="win" name="win" value="">
+            Losses<input type="checkbox" id="lose" name="lose" value="lose">
+            Ties<input type="checkbox" id="tie" name="tie" value="tie">
+            <br><br>
             <input type="submit" name="SUB"/>
         </form>
-        <textarea id="result">
 
-        </textarea>
-        <script src="code.js"></script>
+        <div id="result">
+        </div>
+
     </body>
+    <script src="code.js"></script>
 </html>
