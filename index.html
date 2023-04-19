@@ -3,27 +3,36 @@
     <head>
         <title>The Bluest Alliance</title>
         <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </head>
 
     <body>
         <h1>The Bluest Alliance</h1>
         <form id="frm1">
             <!-- WlMgRCvJmDsGWMWq6Ghh2h1OBXp37koVJU1IQdbOS0rq6E1vIetaggWA0tkhDFc8<br> -->
-            API Key: <input type="text" id="APIKey" value="WlMgRCvJmDsGWMWq6Ghh2h1OBXp37koVJU1IQdbOS0rq6E1vIetaggWA0tkhDFc8" placeholder="The Blue Alliance API Key"><br><br>
-            Game Year: <input type="text" id="gYear" value="2023" placeholder="2023"><br><br>
-            Team Number: <input type="text" id="tNumber" value="1902" placeholder="4-Digit Number"><br>
-            <p>Filters</p>
-            <!-- Finals<input type="checkbox" id="final" name="final" value="final">
+            API Key: <input type="password" id="APIKey" value="WlMgRCvJmDsGWMWq6Ghh2h1OBXp37koVJU1IQdbOS0rq6E1vIetaggWA0tkhDFc8" placeholder="The Blue Alliance API Key" required><br><br>
+            Game Year: <input type="text" id="gYear" value="2023" placeholder="2023" pattern="[0-9]{4}" maxlength="4" required><br><br>
+            Team Number: <input type="text" id="tNumber" value="1902" placeholder="Team Number" required><br>
+            <h3>Filters</h3>
+            Match Type: Finals<input type="checkbox" id="final" name="final" value="final">
             Quals<input type="checkbox" id="qual" name="qual" value="qual">
-            Matches<input type="checkbox" id="match" name="match" value="match"> -->
-            <br>
-            Wins<input type="checkbox" id="win" name="win" value="">
+            Matches<input type="checkbox" id="match" name="match" value="match">
+            <br><br>
+            Outcome: Wins<input type="checkbox" id="win" name="win" value="win" checked>
             Losses<input type="checkbox" id="lose" name="lose" value="lose">
             Ties<input type="checkbox" id="tie" name="tie" value="tie">
             <br><br>
-            <input type="submit" name="SUB"/>
+            Sort By:
+            <input type="radio" id="score" name="sort" value="score"checked>
+            <label for="score">Score</label>
+            <input type="radio" id="date" name="sort" value="date">
+            <label for="date">Date</label>
+            <br><br>
+            <input type="submit" name="Confirm" value="Calculate"/>
         </form>
 
+        <br>
+        <div id="nameOut" class="nameOut"></div>
         <div id="result">
         </div>
 
