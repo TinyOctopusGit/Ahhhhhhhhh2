@@ -8,16 +8,31 @@ document.getElementById("frm1").onsubmit = (e) => {
     const showWin = document.getElementById("win").checked;
     const showLose = document.getElementById("lose").checked;
     const showTie = document.getElementById("tie").checked;
+    const nameOut = document.getElementById("nameOut");
 
     document.getElementById("result").innerHTML = "";
+
+    console.log(baseURL+"/team/"+teamID);
+    console.log(baseURL+"/team/"+teamID+"/matches/"+gYear);
+
+    fetch(`${baseURL}/team/${teamID}`, {
+    method: 'GET',
+        headers: {
+            ["X-TBA-Auth-Key"]: APIKey
+        }
+    })
+   .then(response => response.json())
+   .then(response => document.getElementById("nameOut").innerHTML = JSON.stringify(response.nickname));
+
 
     fetch(`${baseURL}/team/${teamID}/matches/${gYear}`,{
         method: "GET",
         headers: {
             ["X-TBA-Auth-Key"]: APIKey
         }
-    }).then(k=> {
-        k.json().then(p=>{
+    })
+    .then(k=> {k.json()
+    .then(p=>{
             output.value = JSON.stringify(p.map(f=>{
 
                 const url = ("https://www.thebluealliance.com/match/"+f['key']);
@@ -79,6 +94,5 @@ document.getElementById("frm1").onsubmit = (e) => {
         })
     }).catch(ex=>{
         console.log(ex)
-    })
-    
+    })  
 }
